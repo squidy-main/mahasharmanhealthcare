@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Mahasharman Healthcare</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Prata&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        .profile-section {
+            min-height: calc(100vh - 76px);
+            background-color: var(--light-sage);
+            padding-top: 100px;
+        }
+        .profile-header {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            background-color: var(--primary-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+        .profile-avatar i {
+            font-size: 4rem;
+            color: var(--white);
+        }
+        .info-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .info-item {
+            padding: 1rem;
+            border-bottom: 1px solid var(--light-sage);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .info-item:last-child {
+            border-bottom: none;
+        }
+        .edit-btn {
+            color: var(--primary-green);
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .edit-btn:hover {
+            color: var(--deep-brown);
+        }
+        .save-btn {
+            display: none;
+            color: var(--accent-gold);
+        }
+        .input-edit {
+            display: none;
+            width: 100%;
+            padding: 0.375rem 0.75rem;
+            border: 1px solid var(--primary-green);
+            border-radius: 4px;
+            margin-right: 1rem;
+        }
+        .activity-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+        .activity-card:hover {
+            transform: translateY(-3px);
+        }
+        .activity-icon {
+            color: var(--accent-gold);
+            margin-right: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="brand-text">Mahasharman</span>
+                <span class="brand-subtext">Healthcare</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="manufacturing.html">Manufacturing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="wholesale.html">Wholesale</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-3 auth-nav">
+                    <!-- This section will be dynamically updated by auth.js -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+        <div class="container">
+            <div class="profile-header text-center">
+                <div class="profile-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h2 class="profile-name mb-2"></h2>
+                <p class="text-muted profile-email mb-0"></p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="info-card">
+                        <h3 class="mb-4">Personal Information</h3>
+                        <div class="info-item">
+                            <div>
+                                <strong>First Name</strong>
+                                <p class="mb-0 profile-firstname"></p>
+                                <input type="text" class="input-edit firstname-edit" />
+                            </div>
+                            <div>
+                                <button class="edit-btn" onclick="toggleEdit(this, 'firstname')">
+                                    <i class="fas fa-pen"></i>
+                                </button>
+                                <button class="save-btn" onclick="saveEdit(this, 'firstname')">
+                                    <i class="fas fa-check"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div>
+                                <strong>Last Name</strong>
+                                <p class="mb-0 profile-lastname"></p>
+                                <input type="text" class="input-edit lastname-edit" />
+                            </div>
+                            <div>
+                                <button class="edit-btn" onclick="toggleEdit(this, 'lastname')">
+                                    <i class="fas fa-pen"></i>
+                                </button>
+                                <button class="save-btn" onclick="saveEdit(this, 'lastname')">
+                                    <i class="fas fa-check"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div>
+                                <strong>Email</strong>
+                                <p class="mb-0 profile-email-field"></p>
+                                <input type="email" class="input-edit email-edit" />
+                            </div>
+                            <div>
+                                <button class="edit-btn" onclick="toggleEdit(this, 'email')">
+                                    <i class="fas fa-pen"></i>
+                                </button>
+                                <button class="save-btn" onclick="saveEdit(this, 'email')">
+                                    <i class="fas fa-check"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div>
+                                <strong>Member Since</strong>
+                                <p class="mb-0 profile-created"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="info-card">
+                        <h3 class="mb-4">Quick Actions</h3>
+                        <a href="orders.html" class="activity-card d-flex align-items-center text-decoration-none">
+                            <i class="fas fa-shopping-bag activity-icon"></i>
+                            <div>
+                                <h5 class="mb-1">My Orders</h5>
+                                <p class="mb-0 text-muted">View your order history</p>
+                            </div>
+                        </a>
+                        <a href="cart.html" class="activity-card d-flex align-items-center text-decoration-none">
+                            <i class="fas fa-shopping-cart activity-icon"></i>
+                            <div>
+                                <h5 class="mb-1">Shopping Cart</h5>
+                                <p class="mb-0 text-muted">View your current cart</p>
+                            </div>
+                        </a>
+                        <button onclick="handleSignOut(event)" class="btn btn-danger w-100 mt-4">
+                            <i class="fas fa-sign-out-alt me-2"></i>Sign Out
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Fill profile information
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = getUser();
+            if (!user) {
+                window.location.href = 'signin.html';
+                return;
+            }
+
+            document.querySelector('.profile-name').textContent = `${user.firstName} ${user.lastName}`;
+            document.querySelector('.profile-email').textContent = user.email;
+            document.querySelector('.profile-email-field').textContent = user.email;
+            document.querySelector('.profile-firstname').textContent = user.firstName;
+            document.querySelector('.profile-lastname').textContent = user.lastName;
+            
+            // Set input values
+            document.querySelector('.firstname-edit').value = user.firstName;
+            document.querySelector('.lastname-edit').value = user.lastName;
+            document.querySelector('.email-edit').value = user.email;
+            
+            // Format date
+            const createdDate = new Date(user.createdAt).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            document.querySelector('.profile-created').textContent = createdDate;
+        });
+
+        function toggleEdit(button, field) {
+            const container = button.closest('.info-item');
+            const display = container.querySelector(`.profile-${field}`);
+            const input = container.querySelector(`.${field}-edit`);
+            const editBtn = container.querySelector('.edit-btn');
+            const saveBtn = container.querySelector('.save-btn');
+
+            if (display.style.display !== 'none') {
+                display.style.display = 'none';
+                input.style.display = 'block';
+                editBtn.style.display = 'none';
+                saveBtn.style.display = 'block';
+                input.focus();
+            }
+        }
+
+        function saveEdit(button, field) {
+            const container = button.closest('.info-item');
+            const display = container.querySelector(`.profile-${field}`);
+            const input = container.querySelector(`.${field}-edit`);
+            const editBtn = container.querySelector('.edit-btn');
+            const saveBtn = container.querySelector('.save-btn');
+
+            // Here you would typically make an API call to update the user information
+            // For now, we'll just update the display
+            const newValue = input.value.trim();
+            if (newValue) {
+                display.textContent = newValue;
+                if (field === 'firstname' || field === 'lastname') {
+                    const user = getUser();
+                    const otherName = field === 'firstname' ? user.lastName : user.firstName;
+                    const fullName = field === 'firstname' ? 
+                        `${newValue} ${otherName}` : 
+                        `${otherName} ${newValue}`;
+                    document.querySelector('.profile-name').textContent = fullName;
+                }
+            }
+
+            display.style.display = 'block';
+            input.style.display = 'none';
+            editBtn.style.display = 'block';
+            saveBtn.style.display = 'none';
+        }
+    </script>
+    <script src="js/cart.js"></script>
+</body>
+</html> 

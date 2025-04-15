@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wholesale - Mahasharman Healthcare</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Prata&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        /* Fix for the wholesale image */
+        .wholesale-image-placeholder {
+            height: 350px;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        
+        .wholesale-image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="brand-text">Mahasharman</span>
+                <span class="brand-subtext">Healthcare</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="manufacturing.html">Manufacturing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="wholesale.html">Wholesale</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-3 auth-nav">
+                    <!-- This section will be dynamically updated by auth.js -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Wholesale Partnership</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Wholesale</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Wholesale Benefits -->
+    <section class="wholesale-benefits py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2>Why Partner With Us?</h2>
+                    <p class="lead">Join our network of trusted partners and grow your business with authentic Ayurvedic products.</p>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <i class="fas fa-percentage"></i>
+                            <div>
+                                <h4>Competitive Pricing</h4>
+                                <p>Attractive wholesale rates with volume-based discounts.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-truck"></i>
+                            <div>
+                                <h4>Reliable Supply Chain</h4>
+                                <p>Timely delivery and consistent product availability.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-handshake"></i>
+                            <div>
+                                <h4>Dedicated Support</h4>
+                                <p>Personal account manager for seamless business operations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="wholesale-image-placeholder rounded">
+                        <img src="assets/wholesale.JPG" alt="Wholesale">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Process -->
+    <section class="partnership-process py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Become a Partner</h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="process-card">
+                        <div class="process-number">1</div>
+                        <i class="fas fa-file-signature"></i>
+                        <h3>Register</h3>
+                        <p>Fill out our wholesale partner registration form.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="process-card">
+                        <div class="process-number">2</div>
+                        <i class="fas fa-comments"></i>
+                        <h3>Consultation</h3>
+                        <p>Discussion with our wholesale team about your needs.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="process-card">
+                        <div class="process-number">3</div>
+                        <i class="fas fa-file-contract"></i>
+                        <h3>Agreement</h3>
+                        <p>Complete partnership documentation and verification.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="process-card">
+                        <div class="process-number">4</div>
+                        <i class="fas fa-boxes"></i>
+                        <h3>Start Ordering</h3>
+                        <p>Begin placing wholesale orders through our portal.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form -->
+    <section class="registration-form py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="form-wrapper">
+                        <h2 class="text-center mb-4">Register for Wholesale Partnership</h2>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="businessName" class="form-label">Business Name</label>
+                                    <input type="text" class="form-control" id="businessName" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="businessType" class="form-label">Business Type</label>
+                                    <select class="form-select" id="businessType" required>
+                                        <option value="">Select Type</option>
+                                        <option value="retailer">Retailer</option>
+                                        <option value="distributor">Distributor</option>
+                                        <option value="pharmacy">Pharmacy</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="contactName" class="form-label">Contact Person</label>
+                                    <input type="text" class="form-control" id="contactName" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="address" class="form-label">Business Address</label>
+                                    <textarea class="form-control" id="address" rows="3" required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <label for="message" class="form-label">Additional Information</label>
+                                    <textarea class="form-control" id="message" rows="4"></textarea>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg">Submit Registration</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h5>Mahasharman Healthcare</h5>
+                    <p>Your trusted partner in Ayurvedic wellness.</p>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="wholesale.html">Wholesale</a></li>
+                        <li><a href="manufacturing.html">Manufacturing</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-phone"></i> +91 XXXXXXXXXX</li>
+                        <li><i class="fas fa-envelope"></i> info@mahasharman.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12 text-center">
+                    <p class="mb-0">&copy; 2024 Mahasharman Healthcare. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html> 

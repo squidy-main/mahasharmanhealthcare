@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Mahasharman Healthcare</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Prata&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+
+    <style>
+        .category-image-placeholder img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .product-image-placeholder {
+            height: 200px; /* Fixed height container */
+            width: 100%; /* Full width */
+            overflow: hidden; /* Hide overflow */
+            border-radius: 10px; /* Rounded corners */
+        }
+        .product-image-placeholder img {
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            object-fit: cover; /* Cover the container while maintaining aspect ratio */
+            display: block; /* Remove any extra space */
+        }
+        .product-card:hover .product-image-placeholder img {
+            transform: none;
+            transition: none;
+        }
+        .cart-icon {
+            position: relative;
+            margin-left: 15px;
+            display: flex;
+            align-items: center;
+            color: var(--sage);
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+        .cart-icon:hover {
+            color: var(--dark-sage);
+        }
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--sage);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: none;
+            font-size: 12px;
+            text-align: center;
+            line-height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="brand-text">Mahasharman</span>
+                <span class="brand-subtext">Healthcare</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="manufacturing.html">Manufacturing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="wholesale.html">Wholesale</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-3 auth-nav">
+                    <!-- This section will be dynamically updated by auth.js -->
+                </ul>
+                <!-- Cart icon will be added dynamically by cart.js -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Products</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Products</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Product Categories -->
+    <section class="product-categories py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <div class="category-image-placeholder">
+                            <img src="assets/HerbalMedicine.jpg" alt="Herbal Supplements">
+                        </div>
+                        <h3>Herbal Supplements</h3>
+                        <p>Natural supplements for overall wellness and specific health conditions.</p>
+                        <a href="#supplements" class="btn btn-outline-primary">View Products</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <div class="category-image-placeholder">
+                            <img src="assets/ayurvedicmedicines.jpg" alt="Ayurvedic Medicines">
+                        </div>
+                        <h3>Ayurvedic Medicines</h3>
+                        <p>Traditional formulations for various health concerns.</p>
+                        <a href="#medicines" class="btn btn-outline-primary">View Products</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <div class="category-image-placeholder">
+                            <img src="assets/personalcare.webp" alt="Personal Care">
+                        </div>
+                        <h3>Personal Care</h3>
+                        <p>Natural personal care products based on Ayurvedic principles.</p>
+                        <a href="#personal-care" class="btn btn-outline-primary">View Products</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Listings -->
+    <section id="supplements" class="product-listing py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Herbal Supplements</h2>
+            <div id="supplementsCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="product-card" data-product-id="ashwagandha_plus">
+                                    <div class="product-image-placeholder">
+                                        <img src="assets/ashwagandhaplus.JPG" alt="Ashwagandha Plus">
+                                    </div>
+                                    <div class="product-info">
+                                        <h3>Ashwagandha Plus</h3>
+                                        <p>Natural stress relief and immunity booster</p>
+                                        <div class="product-meta">
+                                            <span class="price">₹499</span>
+                                            <div class="d-flex mt-2">
+                                                <button class="btn btn-primary btn-sm me-2 add-to-cart-btn">Add to Cart</button>
+                                                <button class="btn btn-outline-primary btn-sm">Enquire Now</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="product-card" data-product-id="turmeric_capsules">
+                                    <div class="product-image-placeholder">
+                                        <img src="assets/TurmericCapsules.jpg" alt="Turmeric Capsules">
+                                    </div>
+                                    <div class="product-info">
+                                        <h3>Turmeric Capsules</h3>
+                                        <p>Anti-inflammatory and antioxidant support</p>
+                                        <div class="product-meta">
+                                            <span class="price">₹299</span>
+                                            <div class="d-flex mt-2">
+                                                <button class="btn btn-primary btn-sm me-2 add-to-cart-btn">Add to Cart</button>
+                                                <button class="btn btn-outline-primary btn-sm">Enquire Now</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="product-card" data-product-id="ginger_extract">
+                                    <div class="product-image-placeholder">
+                                        <img src="assets/gingerextract.jpg" alt="Ginger Extract">
+                                    </div>
+                                    <div class="product-info">
+                                        <h3>Ginger Extract</h3>
+                                        <p>Digestive health and nausea relief</p>
+                                        <div class="product-meta">
+                                            <span class="price">₹199</span>
+                                            <div class="d-flex mt-2">
+                                                <button class="btn btn-primary btn-sm me-2 add-to-cart-btn">Add to Cart</button>
+                                                <button class="btn btn-outline-primary btn-sm">Enquire Now</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="product-card" data-product-id="neem_tablets">
+                                    <div class="product-image-placeholder">
+                                        <img src="assets/NeemTablets.jpg" alt="Neem Tablets">
+                                    </div>
+                                    <div class="product-info">
+                                        <h3>Neem Tablets</h3>
+                                        <p>Skin health and detoxification</p>
+                                        <div class="product-meta">
+                                            <span class="price">₹249</span>
+                                            <div class="d-flex mt-2">
+                                                <button class="btn btn-primary btn-sm me-2 add-to-cart-btn">Add to Cart</button>
+                                                <button class="btn btn-outline-primary btn-sm">Enquire Now</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#supplementsCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#supplementsCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="medicines" class="product-listing py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Ayurvedic Medicines</h2>
+            <div id="medicinesCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="product-card" data-product-id="triphala_tablets">
+                                    <div class="product-image-placeholder">
+                                        <img src="assets/triphlatablet.jpg" alt="Triphala Tablets">
+                                    </div>
+                                    <div class="product-info">
+                                        <h3>Triphala Tablets</h3>
+                                        <p>Traditional digestive health supplement</p>
+                                        <div class="product-meta">
+                                            <span class="price">₹299</span>
+                                            <div class="d-flex mt-2">
+                                                <button class="btn btn-primary btn-sm me-2 add-to-cart-btn">Add to Cart</button>
+                                                <button class="btn btn-outline-primary btn-sm">Enquire Now</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="product-card" data-product-id="brahmi_capsules">
+                                    <div class="product-image-placeholder">
+                                        <img src="assets/brahmicapsules.jpg" alt="Brahmi Capsules">
+                                    </div>
+                                    <div class="product-info">
+                                        <h3>Brahmi Capsules</h3>
+                                        <p>Memory and cognitive support</p>
+                                        <div class="product-meta">
+                                            <span class="price">₹349</span>
+                                            <div class="d-flex mt-2">
+                                                <button class="btn btn-primary btn-sm me-2 add-to-cart-btn">Add to Cart</button>
+                                                <button class="btn btn-outline-primary btn-sm">Enquire Now</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="product-card" data-product-id="shilajit_resin">
+                                    <div class="product-image-placeholder">
+                                        <img src="assets/shilajit.jpg" alt="Shilajit Resin">
+                                    </div>
+                                    <div class="product-info">
+                                        <h3>Shilajit Resin</h3>
+                                        <p>Energy and vitality enhancer</p>
+                                        <div class="product-meta">
+                                            <span class="price">₹599</span>
+                                            <div class="d-flex mt-2">
+                                                <button class="btn btn-primary btn-sm me-2 add-to-cart-btn">Add to Cart</button>
+                                                <button class="btn btn-outline-primary btn-sm">Enquire Now</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="product-card" data-product-id="chyawanprash">
+                                    <div class="product-image-placeholder">
+                                        <img src="assets/chawanprash.JPG" alt="Chyawanprash">
+                                    </div>
+                                    <div class="product-info">
+                                        <h3>Chyawanprash</h3>
+                                        <p>Immunity booster and rejuvenator</p>
+                                        <div class="product-meta">
+                                            <span class="price">₹399</span>
+                                            <div class="d-flex mt-2">
+                                                <button class="btn btn-primary btn-sm me-2 add-to-cart-btn">Add to Cart</button>
+                                                <button class="btn btn-outline-primary btn-sm">Enquire Now</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#medicinesCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#medicinesCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="personal-care" class="product-listing py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Personal Care</h2>
+            <div id="personalCareCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="product-card" data-product-id="herbal_hair_oil">
+                                    <div class="product-image-placeholder">
+                                        <img src="assets/hearbaloil.JPG" alt="Herbal Hair Oil">
+                                    </div>
+                                    <div class="product-info">
+                                        <h3>Herbal Hair Oil</h3>
+                                        <p>Natural hair care with traditional herbs</p>
+                                        <div class="product-meta">
+                                            <span class="price">₹399</span>
+                                            <div class="d-flex mt-2">
+                                                <button class="btn btn-primary btn-sm me-2 add-to-cart-btn">Add to Cart</button>
+                                                <button class="btn btn-outline-primary btn-sm">Enquire Now</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="product-card" data-product-id="aloe_vera_gel">
+                                    <div class="product-image-placeholder">
+                                        <img src="assets/aloeveragel.JPG" alt="Aloe Vera Gel">
+                                    </div>
+                                    <div class="product-info">
+                                        <h3>Aloe Vera Gel</h3>
+                                        <p>Soothing and moisturizing skin care</p>
+                                        <div class="product-meta">
+                                            <span class="price">₹199</span>
+                                            <div class="d-flex mt-2">
+                                                <button class="btn btn-primary btn-sm me-2 add-to-cart-btn">Add to Cart</button>
+                                                <button class="btn btn-outline-primary btn-sm">Enquire Now</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="product-card" data-product-id="neem_face_wash">
+                                    <div class="product-image-placeholder">
+                                        <img src="assets/neemfacewash.JPG" alt="Neem Face Wash">
+                                    </div>
+                                    <div class="product-info">
+                                        <h3>Neem Face Wash</h3>
+                                        <p>Purifying and cleansing for clear skin</p>
+                                        <div class="product-meta">
+                                            <span class="price">₹149</span>
+                                            <div class="d-flex mt-2">
+                                                <button class="btn btn-primary btn-sm me-2 add-to-cart-btn">Add to Cart</button>
+                                                <button class="btn btn-outline-primary btn-sm">Enquire Now</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="product-card" data-product-id="sandalwood_soap">
+                                    <div class="product-image-placeholder">
+                                        <img src="assets/sandalwoodsoap.JPG" alt="Sandalwood Soap">
+                                    </div>
+                                    <div class="product-info">
+                                        <h3>Sandalwood Soap</h3>
+                                        <p>Refreshing and aromatic bathing experience</p>
+                                        <div class="product-meta">
+                                            <span class="price">₹99</span>
+                                            <div class="d-flex mt-2">
+                                                <button class="btn btn-primary btn-sm me-2 add-to-cart-btn">Add to Cart</button>
+                                                <button class="btn btn-outline-primary btn-sm">Enquire Now</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#personalCareCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#personalCareCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h5>Mahasharman Healthcare</h5>
+                    <p>Your trusted partner in Ayurvedic wellness.</p>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="wholesale.html">Wholesale</a></li>
+                        <li><a href="manufacturing.html">Manufacturing</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-phone"></i> +91 XXXXXXXXXX</li>
+                        <li><i class="fas fa-envelope"></i> info@mahasharman.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12 text-center">
+                    <p class="mb-0">&copy; 2024 Mahasharman Healthcare. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html> 
